@@ -1,28 +1,41 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+/* Objetivos Nível Aventureiro: 
+implementar um menu interativo usando switch para que o jogador possa escolher o atributo de comparação entre duas cartas de países. Além disso,
+usar estruturas de decisão aninhadas (if-else dentro de if-else) para criar uma lógica de comparação mais complexa, considerando regras 
+específicas para cada atributo. */
 
 int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
     // Você pode utilizar o código do primeiro desafio
-    char estado1, estado2;
-    char codigoCarta1[4], codigoCarta2[4], cidade1[30], cidade2[30];
-    unsigned long int populacao1, populacao2;
-    int pontosturisticos1, pontosturisticos2;
-    float area1, area2, pib1, pib2, densidade1, densidade2, pibpercapta1, pibpercapta2;
+    char estado1 = 'A', estado2 = 'B';
+    char codigoCarta1[4] = "A01", codigoCarta2[4] = "B02", cidade1[30] = "SaoPaulo", cidade2[30] = "RioDeJaneiro";
+    unsigned long int populacao1 = 12325000, populacao2 = 6748000;
+    int opcaojogo, opcaoatributo, opcaojogar, opcaojogarnovamente, pontosturisticos1 = 50, pontosturisticos2 = 30;
+    float area1 = 1521.11, area2 = 1200.25, pib1 = 699.28, pib2 = 300.50, densidade1 = 8102.64, densidade2 = 5622.16, pibpercapta1 = 56736.71, pibpercapta2 = 44531.71;
+
+  // Área para a criação do Menu Interativo do Jogo
+    printf("*********************************************\n");
+    printf("*        SUPER TRUNFO DAS CIDADES           *\n");
+    printf("*********************************************\n");
+    printf("* Escolha o que deseja fazer:               *\n");
+    printf("* 1 - Cadastrar cartas                      *\n");
+    printf("* 2 - Jogar Super Trunfo                    *\n");
+    printf("* 3 - Sair                                  *\n");
+    printf("*********************************************\n");  
+
+  // Área para a escolha da opção do Menu Interativo
+    printf("Digite a opção desejada: ");
+    scanf(" %d", &opcaojogo);
+
+    switch (opcaojogo) {
+        case 1:
+            printf("\nVocê escolheu cadastrar cartas!\n");
     
     // Cadastro das Cartas:
     // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
     // utilizando a função scanf para capturar as entradas.
     // utilize o código do primeiro desafio
-
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // (Repita para cada propriedade)
 
     // Área para entrada de dados da cidade 1
     printf("\nVamos digitar os dados da Carta 1!\n\n");
@@ -60,7 +73,7 @@ int main() {
     printf("Área: %.2f km\u00B2\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", pontosturisticos1);
-    printf("Densidade Populacional: %.2f habitantes por km\u00B2\n", densidade1);
+    printf("Densidade Demográfica: %.2f habitantes por km\u00B2\n", densidade1);
     printf("PIB per Capta: %.2f reais por pessoa\n", pibpercapta1);
    
     // Área para entrada de dados da cidade 2
@@ -102,92 +115,257 @@ int main() {
     printf("Área: %.2f km\u00B2\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", pontosturisticos2);
-    printf("Densidade Populacional: %.2f habitantes por km\u00B2\n", densidade2);
+    printf("Densidade Demográfica: %.2f habitantes por km\u00B2\n", densidade2);
     printf("PIB per Capta: %.2f reais por pessoa\n", pibpercapta2);
  
     // Comparação de Cartas:
     // Desenvolva a lógica de comparação entre duas cartas.
     // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+            printf("Cadastro das cartas concluído com sucesso!\n\n");
+            printf("Deseja iniciar o jogo? (1 - Sim / 2 - Não):");
+            scanf(" %d", &opcaojogar);
+            switch(opcaojogar) {
+                case 1:
+                    //Iniciar o jogo
+                    printf("\nIniciando o jogo...\n\n");
+                    break;
+                case 2:
+                    printf("\nVocê escolheu não jogar. Até mais!\n");
+                    return 0;
+                    break;
+                default:
+                    printf("\nOpção inválida! Tente novamente.\n");
+                    break;
+            }
+            break;
+ 
+        case 2: 
+            printf("\nVocê escolheu jogar!\n\n");
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+            // Área para a criação do Menu Interativo
+            printf("*********************************************\n");
+            printf("*        SUPER TRUNFO DAS CIDADES           *\n");
+            printf("*********************************************\n");
+            printf("* Escolha o atributo para comparar as cartas*\n");
+            printf("* 1 - População                             *\n");
+            printf("* 2 - Área                                  *\n");
+            printf("* 3 - PIB                                   *\n");
+            printf("* 4 - Pontos Turísticos                     *\n");
+            printf("* 5 - Densidade Demográfica                 *\n");
+            printf("* 6 - PIB per Capta                         *\n");
+            printf("* 7 - Voltar ao menu anterior               *\n");
+            printf("*********************************************\n");  
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+            printf("Digite a opção desejada: ");
+            scanf(" %d", &opcaoatributo);
 
-  //Populacao
-    printf("\n*** Comparação de Cartas (Atributo: População): ***\n");
-    printf("\nCarta 1 - %s (%c): %lu\n", cidade1, estado1, populacao1);
-    printf("Carta 2 - %s (%c): %lu\n", cidade2, estado2, populacao2);
-    
-        if (populacao1 > populacao2){
-            printf("\nResultado: Carta 1 (%s) venceu!\n\n", cidade1);
-        } else {
-            printf("\nResultado: Carta 2 (%s) venceu!\n\n", cidade2);
-        }
+            switch (opcaoatributo) {
+                case 1:
+                    //População
+                    printf("\n*** Comparação de Cartas (Atributo: População): ***\n");
+        
+                    if (populacao1 > populacao2){
+                        printf("\nResultado: %s (%lu) tem população maior que %s (%lu)! %s venceu!!\n\n", cidade1, populacao1, cidade2, populacao2, cidade1);
+                    } else if (populacao1 < populacao2){
+                        printf("\nResultado: %s (%lu) tem população maior que %s *%lu)! %s venceu!!\n\n", cidade2, populacao2, cidade1, populacao1, cidade2);
+                    } else {
+                        printf("\nResultado: %s (%lu) e %s (%lu) tem populações iguais! Deu empate!\n\n", cidade1, populacao1, cidade2, populacao2);
+                    }
 
-  //Area
-    printf("\n*** Comparação de Cartas (Atributo: Área): ***\n");
-    printf("\nCarta 1 - %s (%c): %.2f\n", cidade1, estado1, area1);
-    printf("Carta 2 - %s (%c): %.2f\n", cidade2, estado2, area2);
-    
-        if (area1 > area2){
-            printf("\nResultado: Carta 1 (%s) venceu!\n\n", cidade1);
-        } else {
-            printf("\nResultado: Carta 2 (%s) venceu!\n\n", cidade2);
-        }
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;
+                case 2:
+                    //Área
+                    printf("\n*** Comparação de Cartas (Atributo: Área): ***\n");
+        
+                    if (area1 > area2){
+                        printf("\nResultado: %s (%.2f km\u00B2) tem área maior que %s (%.2f km\u00B2)! %s venceu!!\n\n", cidade1, area1, cidade2, area2, cidade1);
+                    } else if (area1 < area2){
+                        printf("\nResultado: %s (%.2f km\u00B2) tem área maior que %s (%.2f km\u00B2)! %s venceu!!\n\n", cidade2, area2, cidade1, area1, cidade2);
+                    } else {
+                        printf("\nResultado: %s (%.2f km\u00B2) e %s (%.2f km\u00B2) tem áreas iguais! Deu empate!\n\n", cidade1, area1, cidade2, area2);
+                    }
 
-   //PIB
-    printf("\n*** Comparação de Cartas (Atributo: PIB): ***\n");   
-    printf("\nCarta 1 - %s (%c): %.2f\n", cidade1, estado1, pib1);
-    printf("Carta 2 - %s (%c): %.2f\n", cidade2, estado2, pib2);
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;
+                case 3:
+                    //PIB
+                    printf("\n*** Comparação de Cartas (Atributo: PIB): ***\n");
 
-        if (pib1 > pib2){
-            printf("\nResultado: Carta 1 (%s) venceu!\n\n", cidade1);
-        } else {
-            printf("\nResultado: Carta 2 (%s) venceu!\n\n", cidade2);
-        }
+                    if (pib1 > pib2){
+                        printf("\nResultado: %s (%.2f bilhões) tem PIB maior que %s (%.2f bilhões)! %s venceu!!\n\n", cidade1, pib1, cidade2, pib2, cidade1);
+                    } else if (pib1 < pib2){
+                        printf("\nResultado: %s (%.2f bilhões) tem PIB maior que %s (%.2f bilhões)! %s venceu!!\n\n", cidade2, pib2, cidade1, pib1, cidade2);
+                    } else {
+                        printf("\nResultado: %s (%.2f bilhões) e %s (%.2f bilhões) tem PIBs iguais! Deu empate!\n\n", cidade1, pib1, cidade2, pib2);
+                    }
 
-   //Pontos Turísticos
-    printf("\n*** Comparação de Cartas (Atributo: Pontos Turísticos): ***\n");
-    printf("\nCarta 1 - %s (%c): %d\n", cidade1, estado1, pontosturisticos1);
-    printf("Carta 2 - %s (%c): %d\n", cidade2, estado2, pontosturisticos2);
-    
-        if (pontosturisticos1 > pontosturisticos2){
-            printf("\nResultado: Carta 1 (%s) venceu!\n\n", cidade1);
-        } else {
-            printf("\nResultado: Carta 2 (%s) venceu!\n\n", cidade2);
-        }
-    
-   //Densidade Populacional
-    printf("\n*** Comparação de Cartas (Atributo: Densidade Populacional): ***\n");        
-    printf("\nCarta 1 - %s (%c): %.2f\n", cidade1, estado1, densidade1);
-    printf("Carta 2 - %s (%c): %.2f\n", cidade2, estado2, densidade2);
-    
-    if (densidade1 < densidade2){
-            printf("\nResultado: Carta 1 (%s) venceu!\n\n", cidade1);
-        } else {
-            printf("\nResultado: Carta 2 (%s) venceu!\n\n", cidade2);
-        }
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;
+                case 4:
+                    //Pontos Turísticos
+                    printf("\n*** Comparação de Cartas (Atributo: Pontos Turísticos): ***\n"); 
 
-   //PIB per Capta 
-    printf("\n*** Comparação de Cartas (Atributo: PIB Per Capta): ***\n");                
-    printf("\nCarta 1 - %s (%c): %.2f\n", cidade1, estado1, pibpercapta1);
-    printf("Carta 2 - %s (%c): %.2f\n", cidade2, estado2, pibpercapta2);
-    
-        if (pibpercapta1 > pibpercapta2){
-            printf("\nResultado: Carta 1 (%s) venceu!\n\n", cidade1);
-        } else {
-            printf("\nResultado: Carta 2 (%s) venceu!\n\n", cidade2);
-        }
+                    if (pontosturisticos1 > pontosturisticos2){
+                        printf("\nResultado: %s (%d) tem mais pontos turísticos que %s (%d)! %s venceu!!\n\n", cidade1, pontosturisticos1, cidade2, pontosturisticos2, cidade1);
+                    } else if (pontosturisticos1 < pontosturisticos2){
+                        printf("\nResultado: %s (%d) tem mais pontos turísticos que %s (%d)! %s venceu!!\n\n", cidade2, pontosturisticos2, cidade1, pontosturisticos1, cidade2);
+                    } else {
+                        printf("\nResultado: %s (%d) e %s (%d) tem igual número de pontos turísticos! Deu empate!\n\n", cidade1, pontosturisticos1, cidade2, pontosturisticos2);
+                    }
 
-    return 0;
-}
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;                    
+                case 5:
+                    //Densidade Demográfica
+                    printf("\n*** Comparação de Cartas (Atributo: Densidade Demográfica): ***\n");
+
+                    if (densidade1 < densidade2){
+                        printf("\nResultado: %s (%.2f hab/km\u00B2) tem densidade demográfica menor que %s (%.2f hab/km\u00B2)! %s venceu!!\n\n", cidade1, densidade1, cidade2, densidade2, cidade1);
+                    } else if (densidade1 > densidade2){
+                        printf("\nResultado: %s (%.2f hab/km\u00B2) tem densidade demográfica menor que %s (%.2f hab/km\u00B2)! %s venceu!!\n\n", cidade2, densidade2, cidade1, densidade1, cidade2);
+                    } else {
+                        printf("\nResultado: %s (%.2f hab/km\u00B2) e %s (%.2f hab/km\u00B2) tem igual densidade demográfica! Deu empate!\n\n", cidade1, densidade1, cidade2, densidade2);
+                    }
+
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;
+                case 6:
+                    //PIB per Capta
+                    printf("\n*** Comparação de Cartas (Atributo: PIB per Capta): ***\n");
+
+                    if (pibpercapta1 > pibpercapta2){
+                        printf("\nResultado: %s (%.2f reais) tem PIB per Capta maior que %s (%.2f reais)! %s venceu!!\n\n", cidade1, pibpercapta1, cidade2, pibpercapta2, cidade1);
+                    } else if (pibpercapta1 < pibpercapta2){
+                        printf("\nResultado: %s (%.2f reais) tem PIB per Capta maior que %s (%.2f reais)! %s venceu!!\n\n", cidade2, pibpercapta2, cidade1, pibpercapta1, cidade2);
+                    } else {
+                        printf("\nResultado: %s (%.2f reais) e %s (%.2f reais) tem igual PIB per Capta! Deu empate!\n\n", cidade1, pibpercapta1, cidade2, pibpercapta2);
+                    }
+
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;
+                case 7:
+                    //Voltar ao menu anterior
+                    main(); 
+                    break;
+                default:
+                    printf("\nOpção inválida! Tente novamente.\n");
+                    printf("Deseja jogar novamente? (1 - Sim / 2 - Não): ");
+                    scanf(" %d", &opcaojogarnovamente);
+                    switch(opcaojogarnovamente) {
+                        case 1:
+                            //Reiniciar o jogo
+                            printf("\nReiniciando o jogo...\n\n");
+                            main();
+                            break;
+                        case 2:
+                            printf("\nVocê escolheu sair. Até mais!\n");
+                            return 0;
+                            break;
+                        default:
+                            printf("\nOpção inválida! Tente novamente.\n");
+                            break;
+                    }
+                    break;
+                }
+                break;
+            case 3:
+                printf("\nVocê escolheu sair. Até mais!\n");
+                break;
+            default:
+                printf("\nOpção inválida! Tente novamente.\n");
+                break;
+    }
+return 0;  
+    }
